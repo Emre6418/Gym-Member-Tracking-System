@@ -1,0 +1,59 @@
+﻿@model Members
+
+@{
+    ViewData["Title"] = "Delete Member by ID";
+}
+
+<h2>Delete Member</h2>
+
+<form asp-action="Delete" method="get">
+    <div class="form-group">
+        <label for="memberId">Enter Member ID:</label>
+        <input type="number" id="memberId" name="id" class="form-control" required />
+    </div>
+    <button type="submit" class="btn btn-primary">Search</button>
+</form>
+
+@if (Model != null)
+{
+    <div class="card shadow mt-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Member Details</h6>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <tr>
+                        <th>First Name</th>
+                        <td>@Model.FirstName</td>
+                    </tr>
+                    <tr>
+                        <th>Surname</th>
+                        <td>@Model.LastName</td>
+                    </tr>
+                    <tr>
+                        <th>Gender</th>
+                        <td>@Model.Gender</td>
+                    </tr>
+                    <tr>
+                        <th>Email</th>
+                        <td>@Model.Email</td>
+                    </tr>
+                    <tr>
+                        <th>Phone Number</th>
+                        <td>@Model.PhoneNumber</td>
+                    </tr>
+                    <tr>
+                        <th>Date of Birth</th>
+                        <td>@Model.DateOfBirth.ToString("dd/MM/yyyy")</td>
+                    </tr>
+                </table>
+            </div>
+            <form asp-action="Delete" method="post" style="display:inline;">
+                <input type="hidden" name="id" value="@Model.Id" />
+                <button type="submit" class="btn btn-danger">Delete</button>
+                <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+            </form>
+        </div>
+    </div>
+}

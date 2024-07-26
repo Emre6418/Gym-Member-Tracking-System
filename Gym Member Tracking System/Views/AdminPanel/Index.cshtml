@@ -1,0 +1,62 @@
+﻿@model IEnumerable<Gym_Member_Tracking_System.Models.Members>
+
+
+ <!-- Page Heading -->
+<h1 class="h3 mb-2 text-gray-800">Tables</h1>
+<p class="mb-4">
+    You are viewing people currently registered with the gym
+</p>
+
+<!-- DataTales Example -->
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>First Name</th>
+                        <th>Surname</th>
+                        <th>Gender</th>
+                        <th>Email</th>
+                        <th>Phone Number</th>
+                        <th>Date of Bhirtday</th>
+                    </tr>
+                </thead>
+                @* <tfoot>
+                    <tr>
+                        <th>First Name</th>
+                        <th>Surname</th>
+                        <th>Gender</th>
+                        <th>Email</th>
+                        <th>Phone Number</th>
+                        <th>Date of Bhirtday</th>
+                    </tr>
+                </tfoot> *@
+                <tbody>
+                    @foreach (var data in Model)
+                    {
+                    <tr> 
+                            <td>@data.Id</td>
+                            <td>@data.FirstName</td>
+                            <td>@data.LastName</td>
+                            <td>@data.Gender</td>
+                            <td>@data.Email</td>
+                            <td>@data.PhoneNumber</td>
+                            <td>@data.DateOfBirth.ToString("dd/MM/yyyy")</td>
+                    </tr>  
+                    }
+
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+                </div>
+<!-- /.container-fluid -->
+            </div>
